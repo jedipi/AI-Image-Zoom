@@ -8,6 +8,7 @@ Before (left image) - After (right image)
 ![](img/1.png)
 
 # Download
+https://github.com/jedipi/AI-Image-Zoom/releases
 
 
 # System Requirement 

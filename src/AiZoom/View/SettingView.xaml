@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="AiZoom.View.SettingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"             
+             xmlns:local="clr-namespace:AiZoom.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="StackStyle" TargetType="StackPanel">
+            <Setter Property="Margin" Value="0,10,10,10" />
+        </Style>
+    </UserControl.Resources>
+
+    <b:Interaction.Triggers>
+        <b:EventTrigger EventName="Loaded" SourceObject="{Binding ElementName=SettingView}">
+            <b:InvokeCommandAction Command="{Binding LoadedCmd}" />
+        </b:EventTrigger>
+    </b:Interaction.Triggers>
+    
+    <StackPanel Orientation="Vertical" >
+        <TextBlock
+            Margin="0 15 0 50"
+            Padding="0"
+            FontFamily="{DynamicResource MahApps.Fonts.Family.Header}"
+            FontSize="{DynamicResource MahApps.Font.Size.Header}"
+            Text="Settings" />
+
+        <StackPanel Orientation="Horizontal" Style="{StaticResource StackStyle}">
+            <Label Content="Engine: " Width="120"/>
+            <TextBox Text="Real-ESRGAN" VerticalContentAlignment="Center" Width="410" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Style="{StaticResource StackStyle}">
+            <Label Content="AI Model: " Width="120"/>
+            <ComboBox ItemsSource="{Binding Modules}"  Width="410"
+                      SelectedItem="{Binding SelectedModule}"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Style="{StaticResource StackStyle}">
+            <Label Content="File Name Suffix: " Width="120"/>
+            <TextBox Text="{Binding FileNameSuffix}" VerticalContentAlignment="Center" Width="410" />
+        </StackPanel>
+        
+        <StackPanel Orientation="Horizontal" Style="{StaticResource StackStyle}">
+            <Label Content="Output Format: " Width="120"/>
+            <ComboBox ItemsSource="{Binding OutputFormats}" Width="410"
+                      SelectedItem="{Binding SelectedOutputFormat}"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Style="{StaticResource StackStyle}">
+            <Label Content="Output Directory: " Width="120"/>
+            <TextBox Text="{Binding OutputDirectory}" VerticalContentAlignment="Center" Width="410"  IsReadOnly="True"/>
+            <Button Width="40" Height="25" Margin="10,0"
+                    Command="{Binding BrowseFolderCmd}">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <iconPacks:PackIconFontAwesome Kind="FolderOpenRegular"  VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Style="{StaticResource StackStyle}">
+            <Label Content="" Width="120"/>
+            <Button Width="90" Height="40" HorizontalAlignment="Left"
+                    Command="{Binding SaveCmd}">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <iconPacks:PackIconFontAwesome Kind="SaveRegular"  VerticalAlignment="Center"/>
+                    <TextBlock Text="Save" Margin="10,0,0,0"/>
+                </StackPanel>
+            </Button>
+
+            <Button Width="150" Height="40" Margin="10,0" HorizontalContentAlignment="Center"
+                    Command="{Binding DiscardCmd}">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <iconPacks:PackIconFontAwesome Kind="TimesSolid"  VerticalAlignment="Center"/>
+                    <TextBlock Text="Discard Changes" Margin="10,0,0,0" TextWrapping="Wrap"/>
+                </StackPanel>
+            </Button>
+
+            <Button Width="150" Height="40" HorizontalContentAlignment="Center"
+                    Command="{Binding RestoreCmd}">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <iconPacks:PackIconFontAwesome Kind="SyncAltSolid"  VerticalAlignment="Center"/>
+                    <TextBlock Text="Default Settings" Margin="10,0,0,0" TextWrapping="Wrap"/>
+                </StackPanel>
+            </Button>
+
+
+
+        </StackPanel>
+
+    </StackPanel>
+</UserControl>

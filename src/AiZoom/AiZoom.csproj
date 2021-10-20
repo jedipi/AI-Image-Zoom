@@ -18,11 +18,27 @@
 	<PackageReference Include="Ookii.Dialogs.Wpf" Version="4.0.0" />
 	<PackageReference Include="PropertyChanged.Fody" Version="3.4.0" />
 	<PackageReference Include="TG.INI" Version="1.3.1" />
+	<PackageReference Include="WPFLocalizeExtension" Version="3.9.0" />
   </ItemGroup>
 
   <ItemGroup>
 	<Folder Include="Logs\" />
 	<Folder Include="Properties\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\Localize.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Localize.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Localize.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Localize.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>

@@ -9,6 +9,10 @@
                  xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
                  xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
                  mah:DialogParticipation.Register="{Binding}"
+                 xmlns:lex="http://wpflocalizeextension.codeplex.com"
+        lex:LocalizeDictionary.DesignCulture="en"
+        lex:ResxLocalizationProvider.DefaultAssembly="AiZoom"
+        lex:ResxLocalizationProvider.DefaultDictionary="Localize"
                  Style="{DynamicResource MahApps.Styles.MetroWindow.VisualStudio}"
                  BorderThickness="0"
                  GlowBrush="Black"
@@ -195,7 +199,7 @@
                 <!--  Items  -->
                 <mah:HamburgerMenu.ItemsSource>
                     <mah:HamburgerMenuItemCollection>
-                        <mah:HamburgerMenuIconItem Icon="{iconPacks:MaterialDesign Kind=ZoomIn}" Label="Zoom">
+                        <mah:HamburgerMenuIconItem Icon="{iconPacks:MaterialDesign Kind=ZoomIn}" Label="{lex:Loc MenuZoom}">
                             <mah:HamburgerMenuIconItem.Tag>
                                 <local:HomeView />
                             </mah:HamburgerMenuIconItem.Tag>

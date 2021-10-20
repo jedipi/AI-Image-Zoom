@@ -61,11 +61,119 @@ namespace AiZoom.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Default Setting.
+        /// </summary>
+        internal static string ButtonDefault {
+            get {
+                return ResourceManager.GetString("ButtonDefault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Discard Changes.
+        /// </summary>
+        internal static string ButtonDiscard {
+            get {
+                return ResourceManager.GetString("ButtonDiscard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        internal static string ButtonSave {
+            get {
+                return ResourceManager.GetString("ButtonSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Engine:.
+        /// </summary>
+        internal static string LabelEngine {
+            get {
+                return ResourceManager.GetString("LabelEngine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Output File Format:.
+        /// </summary>
+        internal static string LabelFileFormat {
+            get {
+                return ResourceManager.GetString("LabelFileFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File Name Suffix:.
+        /// </summary>
+        internal static string LabelFileSuffix {
+            get {
+                return ResourceManager.GetString("LabelFileSuffix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display Language:.
+        /// </summary>
+        internal static string LabelLanguage {
+            get {
+                return ResourceManager.GetString("LabelLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trained Model:.
+        /// </summary>
+        internal static string LabelModel {
+            get {
+                return ResourceManager.GetString("LabelModel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Output Directory:.
+        /// </summary>
+        internal static string LabelOutputDirectory {
+            get {
+                return ResourceManager.GetString("LabelOutputDirectory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        internal static string MenuAbout {
+            get {
+                return ResourceManager.GetString("MenuAbout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        internal static string MenuSettings {
+            get {
+                return ResourceManager.GetString("MenuSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Zoom.
         /// </summary>
         internal static string MenuZoom {
             get {
                 return ResourceManager.GetString("MenuZoom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AI Image Zoom.
+        /// </summary>
+        internal static string Title {
+            get {
+                return ResourceManager.GetString("Title", resourceCulture);
             }
         }
     }

@@ -117,7 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ButtonDefault" xml:space="preserve">
+    <value>Default Setting</value>
+  </data>
+  <data name="ButtonDiscard" xml:space="preserve">
+    <value>Discard Changes</value>
+  </data>
+  <data name="ButtonSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="LabelEngine" xml:space="preserve">
+    <value>Engine:</value>
+  </data>
+  <data name="LabelFileFormat" xml:space="preserve">
+    <value>Output File Format:</value>
+  </data>
+  <data name="LabelFileSuffix" xml:space="preserve">
+    <value>File Name Suffix:</value>
+  </data>
+  <data name="LabelLanguage" xml:space="preserve">
+    <value>Display Language:</value>
+  </data>
+  <data name="LabelModel" xml:space="preserve">
+    <value>Trained Model:</value>
+  </data>
+  <data name="LabelOutputDirectory" xml:space="preserve">
+    <value>Output Directory:</value>
+  </data>
+  <data name="MenuAbout" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="MenuSettings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
   <data name="MenuZoom" xml:space="preserve">
     <value>Zoom</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>AI Image Zoom</value>
   </data>
 </root>

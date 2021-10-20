@@ -1,4 +1,5 @@
-﻿using AiZoom.Models;
+﻿using AiZoom.Data;
+using AiZoom.Models;
 using AiZoom.Services.Interfaces;
 using Autofac;
 using MahApps.Metro.Controls.Dialogs;
@@ -6,12 +7,15 @@ using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using TG.INI;
 using TG.INI.Serialization;
+using WPFLocalizeExtension.Engine;
 
 namespace AiZoom.ViewModel
 {
@@ -24,6 +28,8 @@ namespace AiZoom.ViewModel
         public IRelayCommand RestoreCmd { get; set; }
         public IRelayCommand BrowseFolderCmd { get; set; }
 
+        public IRelayCommand LocaleSelectionChangedCmd { get; set; }
+
         #endregion
 
         #region Fields
@@ -32,8 +38,11 @@ namespace AiZoom.ViewModel
         #endregion
 
         #region Properties
-        public List<string> Modules { get; set; }
-        
+
+        public List<LocaleModel> Locales { get; set; }
+        public LocaleModel SelectedLocale { get; set; }
+
+        public List<string> Modules { get; set; }        
         public string SelectedModule { get; set; }
 
         public string FileNameSuffix { get; set; }
@@ -51,7 +60,14 @@ namespace AiZoom.ViewModel
             SaveCmd = new RelayCommand(OnSaveCmd);
             DiscardCmd = new RelayCommand(OnDiscardCmd);
             RestoreCmd = new RelayCommand(OnRestoreCmd);
-            BrowseFolderCmd = new RelayCommand(OnBrowseFolderCmd);            
+            BrowseFolderCmd = new RelayCommand(OnBrowseFolderCmd);
+            LocaleSelectionChangedCmd = new RelayCommand(OnLocaleSelectionChangedCmd);
+        }
+
+        private void OnLocaleSelectionChangedCmd()
+        {
+            LocalizeDictionary.Instance.Culture = new CultureInfo(SelectedLocale.Code);
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(SelectedLocale.Code);
         }
 
         private void OnBrowseFolderCmd()
@@ -67,6 +83,7 @@ namespace AiZoom.ViewModel
 
         private void OnRestoreCmd()
         {
+            SelectedLocale = Locales.First(x=>x.Code == "en");
             SelectedModule = "realesrgan-x4plus";
             FileNameSuffix = "";
             SelectedOutputFormat = "jpg";
@@ -81,6 +98,8 @@ namespace AiZoom.ViewModel
             {
                 var document = new IniDocument(@"config.ini");
                 var settings = IniSerialization.DeserializeDocument<SettingModel>(document);
+
+                SelectedLocale = Locales.First(x => x.Code == settings.Locale);
 
                 if (Modules.Contains(settings.Module))
                     SelectedModule = settings.Module;
@@ -99,6 +118,7 @@ namespace AiZoom.ViewModel
         {
             var settings = new SettingModel()
             {
+                Locale = SelectedLocale.Code,
                 Module = SelectedModule,
                 FileNameSuffix = FileNameSuffix,
                 OutputFormat = SelectedOutputFormat,
@@ -112,6 +132,9 @@ namespace AiZoom.ViewModel
         {
             var moduleService = Locator.Container.Resolve<IModuleService>();
             Modules = moduleService.GetModules();
+
+            var localeService = Locator.Container.Resolve<ILocaleService>();
+            Locales = localeService.GetLocale();
             OnDiscardCmd();
         }
     }

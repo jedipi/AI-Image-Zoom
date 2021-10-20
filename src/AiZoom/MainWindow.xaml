@@ -204,7 +204,7 @@
                                 <local:HomeView />
                             </mah:HamburgerMenuIconItem.Tag>
                         </mah:HamburgerMenuIconItem>
-                        <mah:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=Cog}" Label="Settings">
+                        <mah:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=Cog}" Label="{lex:Loc MenuSettings}">
                             <mah:HamburgerMenuIconItem.Tag>
                                 <local:SettingView />
                             </mah:HamburgerMenuIconItem.Tag>
@@ -213,8 +213,8 @@
                 </mah:HamburgerMenu.ItemsSource>
 
                 <mah:HamburgerMenu.OptionsItemsSource>
-                    <mah:HamburgerMenuItemCollection>                        
-                        <mah:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=Help}" Label="About" >
+                    <mah:HamburgerMenuItemCollection>
+                        <mah:HamburgerMenuIconItem Icon="{iconPacks:Material Kind=Help}" Label="{lex:Loc MenuAbout}" >
                             <mah:HamburgerMenuIconItem.Tag>
                                 <local:AboutView />
                             </mah:HamburgerMenuIconItem.Tag>

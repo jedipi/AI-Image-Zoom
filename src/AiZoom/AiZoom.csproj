@@ -49,6 +49,9 @@
 	<None Update="config.ini">
 	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	</None>
+	<None Update="Data\Locale.json">
+	  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</None>
 	<None Update="Logging.db3">
 	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	</None>

@@ -7,6 +7,10 @@
              xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"             
              xmlns:local="clr-namespace:AiZoom.View"
+             xmlns:lex="http://wpflocalizeextension.codeplex.com"
+        lex:LocalizeDictionary.DesignCulture="en"
+        lex:ResxLocalizationProvider.DefaultAssembly="AiZoom"
+        lex:ResxLocalizationProvider.DefaultDictionary="Localize"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
@@ -30,28 +34,41 @@
             Text="Settings" />
 
         <StackPanel Orientation="Horizontal" Style="{StaticResource StackStyle}">
-            <Label Content="Engine: " Width="120"/>
+            <Label Content="{lex:Loc LabelLanguage}" Width="120"/>
+            <ComboBox ItemsSource="{Binding Locales}"  Width="410"
+                      SelectedItem="{Binding SelectedLocale}"
+                      DisplayMemberPath="Name" >
+                <b:Interaction.Triggers>
+                    <b:EventTrigger EventName="SelectionChanged">
+                        <b:InvokeCommandAction Command="{Binding LocaleSelectionChangedCmd}" />
+                    </b:EventTrigger>
+                </b:Interaction.Triggers>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Style="{StaticResource StackStyle}">
+            <Label Content="{lex:Loc LabelEngine}" Width="120"/>
             <TextBox Text="Real-ESRGAN" VerticalContentAlignment="Center" Width="410" />
         </StackPanel>
         <StackPanel Orientation="Horizontal" Style="{StaticResource StackStyle}">
-            <Label Content="AI Model: " Width="120"/>
+            <Label Content="{lex:Loc LabelModel}" Width="120"/>
             <ComboBox ItemsSource="{Binding Modules}"  Width="410"
                       SelectedItem="{Binding SelectedModule}"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Style="{StaticResource StackStyle}">
-            <Label Content="File Name Suffix: " Width="120"/>
+            <Label Content="{lex:Loc LabelFileSuffix}" Width="120"/>
             <TextBox Text="{Binding FileNameSuffix}" VerticalContentAlignment="Center" Width="410" />
         </StackPanel>
         
         <StackPanel Orientation="Horizontal" Style="{StaticResource StackStyle}">
-            <Label Content="Output Format: " Width="120"/>
+            <Label Content="{lex:Loc LabelFileFormat}" Width="120"/>
             <ComboBox ItemsSource="{Binding OutputFormats}" Width="410"
                       SelectedItem="{Binding SelectedOutputFormat}"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Style="{StaticResource StackStyle}">
-            <Label Content="Output Directory: " Width="120"/>
+            <Label Content="{lex:Loc LabelOutputDirectory}" Width="120"/>
             <TextBox Text="{Binding OutputDirectory}" VerticalContentAlignment="Center" Width="410"  IsReadOnly="True"/>
             <Button Width="40" Height="25" Margin="10,0"
                     Command="{Binding BrowseFolderCmd}">
@@ -67,7 +84,7 @@
                     Command="{Binding SaveCmd}">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <iconPacks:PackIconFontAwesome Kind="SaveRegular"  VerticalAlignment="Center"/>
-                    <TextBlock Text="Save" Margin="10,0,0,0"/>
+                    <TextBlock Text="{lex:Loc ButtonSave}" Margin="10,0,0,0"/>
                 </StackPanel>
             </Button>
 
@@ -75,7 +92,7 @@
                     Command="{Binding DiscardCmd}">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <iconPacks:PackIconFontAwesome Kind="TimesSolid"  VerticalAlignment="Center"/>
-                    <TextBlock Text="Discard Changes" Margin="10,0,0,0" TextWrapping="Wrap"/>
+                    <TextBlock Text="{lex:Loc ButtonDiscard}" Margin="10,0,0,0" TextWrapping="Wrap"/>
                 </StackPanel>
             </Button>
 
@@ -83,7 +100,7 @@
                     Command="{Binding RestoreCmd}">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <iconPacks:PackIconFontAwesome Kind="SyncAltSolid"  VerticalAlignment="Center"/>
-                    <TextBlock Text="Default Settings" Margin="10,0,0,0" TextWrapping="Wrap"/>
+                    <TextBlock Text="{lex:Loc ButtonDefault}" Margin="10,0,0,0" TextWrapping="Wrap"/>
                 </StackPanel>
             </Button>
 

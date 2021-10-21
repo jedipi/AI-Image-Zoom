@@ -1,7 +1,9 @@
-# Introduction 
-AI Image Zoom
+# AI Image Zoom
 
-This app uses the pre-trained Real-ESRGAN AI models to restore and scale up your blurry image without losing quality - Lossless Zoom In
+[![](img/Ai-Image-Zoom.png)](https://raw.githubusercontent.com/jedipi/AI-Image-Zoom/main/img/Ai-Image-Zoom.png)
+
+
+AI Image Zoom using the Real-ESRGAN AI engine with pre-trained models to enlarge and enhance images without losing quality.
 
 Before (left image) - After (right image)
 ![](img/1.png)

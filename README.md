@@ -1,7 +1,7 @@
-# AI Image Zoom
-
+# 
 [![AI Image Zoom](img/Ai-Image-Zoom.png)](https://raw.githubusercontent.com/jedipi/AI-Image-Zoom/main/img/Ai-Image-Zoom.png)
 
+# AI Image Zoom
 
 AI Image Zoom using the Real-ESRGAN AI engine with pre-trained models to upscale and enhance images without losing quality. This little tool can restore your photos and bring life to them again.
 

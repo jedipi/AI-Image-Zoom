@@ -126,6 +126,9 @@
   <data name="ButtonSave" xml:space="preserve">
     <value>儲存</value>
   </data>
+  <data name="LabelAuthor" xml:space="preserve">
+    <value>作者 - </value>
+  </data>
   <data name="LabelEngine" xml:space="preserve">
     <value>引擎核心</value>
   </data>
@@ -144,6 +147,12 @@
   <data name="LabelOutputDirectory" xml:space="preserve">
     <value>儲存資料夾</value>
   </data>
+  <data name="LabelVersion" xml:space="preserve">
+    <value>版本 -</value>
+  </data>
+  <data name="LabelWebsite" xml:space="preserve">
+    <value>網頁 - </value>
+  </data>
   <data name="MenuAbout" xml:space="preserve">
     <value>關於</value>
   </data>
@@ -155,5 +164,8 @@
   </data>
   <data name="Title" xml:space="preserve">
     <value>AI 相片放大工具</value>
+  </data>
+  <data name="TitleAbout" xml:space="preserve">
+    <value>關於 AI Image Zoom</value>
   </data>
 </root>

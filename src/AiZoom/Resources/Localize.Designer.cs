@@ -88,6 +88,15 @@ namespace AiZoom.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Author - .
+        /// </summary>
+        internal static string LabelAuthor {
+            get {
+                return ResourceManager.GetString("LabelAuthor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Engine:.
         /// </summary>
         internal static string LabelEngine {
@@ -142,6 +151,24 @@ namespace AiZoom.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Version - .
+        /// </summary>
+        internal static string LabelVersion {
+            get {
+                return ResourceManager.GetString("LabelVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Website - .
+        /// </summary>
+        internal static string LabelWebsite {
+            get {
+                return ResourceManager.GetString("LabelWebsite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
         internal static string MenuAbout {
@@ -174,6 +201,15 @@ namespace AiZoom.Resources {
         internal static string Title {
             get {
                 return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About AI Image Zoom.
+        /// </summary>
+        internal static string TitleAbout {
+            get {
+                return ResourceManager.GetString("TitleAbout", resourceCulture);
             }
         }
     }

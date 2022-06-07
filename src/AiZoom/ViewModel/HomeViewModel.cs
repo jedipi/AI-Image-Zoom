@@ -76,14 +76,21 @@ namespace AiZoom.ViewModel
                 return;
             }
 
+            var document = new IniDocument(@"config.ini");
+            var settings = IniSerialization.DeserializeDocument<SettingModel>(document);
+
+            if (string.IsNullOrEmpty(settings.OutputDirectory))
+            {
+                await _dialog.ShowMessageAsync(this, "ERROR", "Output directory is missing.");
+                return;
+            }
 
             var sourceImageFile = new FileInfo(SourceImage);
             var sourceImageName = Path.GetFileNameWithoutExtension(sourceImageFile.Name);
 
             
 
-            var document = new IniDocument(@"config.ini");
-            var settings = IniSerialization.DeserializeDocument<SettingModel>(document);
+            
 
             var engine = @"realesrgan\realesrgan-ncnn-vulkan.exe";
 

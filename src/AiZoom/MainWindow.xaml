@@ -188,14 +188,15 @@
                 BorderThickness="1">
 
             <mah:HamburgerMenu x:Name="HamburgerMenuControl"
-                               HamburgerWidth="40"
-                               IsPaneOpen="True"
+                               HamburgerWidth="30"
+                               IsPaneOpen="False"
                                ItemInvoked="HamburgerMenuControl_OnItemInvoked"
                                ItemTemplate="{StaticResource MenuItemTemplate}"
                                OptionsItemTemplate="{StaticResource MenuItemTemplate}"
                                SelectedIndex="0"
                                Style="{StaticResource MahApps.Styles.HamburgerMenu.Ripple}"
-                               VerticalScrollBarOnLeftSide="False">
+                               VerticalScrollBarOnLeftSide="False"
+                               >
                 <!--  Items  -->
                 <mah:HamburgerMenu.ItemsSource>
                     <mah:HamburgerMenuItemCollection>

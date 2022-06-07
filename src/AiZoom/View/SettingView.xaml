@@ -31,7 +31,7 @@
             Padding="0"
             FontFamily="{DynamicResource MahApps.Fonts.Family.Header}"
             FontSize="{DynamicResource MahApps.Font.Size.Header}"
-            Text="Settings" />
+            Text="{lex:Loc MenuSettings}" />
 
         <StackPanel Orientation="Horizontal" Style="{StaticResource StackStyle}">
             <Label Content="{lex:Loc LabelLanguage}" Width="120"/>

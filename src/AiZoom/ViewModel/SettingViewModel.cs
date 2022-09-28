@@ -2,17 +2,15 @@
 using AiZoom.Models;
 using AiZoom.Services.Interfaces;
 using Autofac;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using MahApps.Metro.Controls.Dialogs;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
-using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using TG.INI;
 using TG.INI.Serialization;
 using WPFLocalizeExtension.Engine;
@@ -42,7 +40,7 @@ namespace AiZoom.ViewModel
         public List<LocaleModel> Locales { get; set; }
         public LocaleModel SelectedLocale { get; set; }
 
-        public List<string> Modules { get; set; }        
+        public List<string> Modules { get; set; }
         public string SelectedModule { get; set; }
 
         public string FileNameSuffix { get; set; }
@@ -83,7 +81,7 @@ namespace AiZoom.ViewModel
 
         private void OnRestoreCmd()
         {
-            SelectedLocale = Locales.First(x=>x.Code == "en");
+            SelectedLocale = Locales.First(x => x.Code == "en");
             SelectedModule = "realesrgan-x4plus";
             FileNameSuffix = "";
             SelectedOutputFormat = "jpg";

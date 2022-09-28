@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
-using AiZoom.Services.Interfaces;
-using Autofac;
+﻿using Autofac;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using MahApps.Metro.Controls.Dialogs;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
-using Microsoft.Toolkit.Mvvm.Input;
+using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace AiZoom.ViewModel
 {
@@ -33,23 +29,23 @@ namespace AiZoom.ViewModel
 
         public string Title { get; set; }
 
-        
+
 
         #endregion
 
 
         public MainViewModel()
         {
-            ExitCmd = new RelayCommand(()=> { Environment.Exit(0); });
+            ExitCmd = new RelayCommand(() => { Environment.Exit(0); });
             SaveCmd = new AsyncRelayCommand(OnSaveCmd);
             ContentRenderedCmd = new AsyncRelayCommand(async () => await OnContentRenderedCmd());
             _dialog = Locator.Container.Resolve<IDialogCoordinator>();
-            
+
         }
 
         private async Task OnContentRenderedCmd()
         {
-            
+
         }
 
 

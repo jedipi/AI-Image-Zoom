@@ -1,9 +1,9 @@
 ﻿using AiZoom.Models;
 using Autofac;
 using CliWrap;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using MahApps.Metro.Controls.Dialogs;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
-using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -21,7 +21,7 @@ namespace AiZoom.ViewModel
         public IAsyncRelayCommand OpenSourceImageCmd { get; set; }
         public IAsyncRelayCommand OpenResultImageCmd { get; set; }
 
-        
+
         #endregion
         #region Fields
 
@@ -43,7 +43,7 @@ namespace AiZoom.ViewModel
             _dialog = Locator.Container.Resolve<IDialogCoordinator>();
 
             OpenImageCmd = new RelayCommand(OnOpenImageCmd);
-            StartCmd = new AsyncRelayCommand(async()=> await OnStartCmd());
+            StartCmd = new AsyncRelayCommand(async () => await OnStartCmd());
             OpenSourceImageCmd = new AsyncRelayCommand(OnOpenSourceImageCmd);
             OpenResultImageCmd = new AsyncRelayCommand(OnOpenResultImageCmd);
 
@@ -88,9 +88,9 @@ namespace AiZoom.ViewModel
             var sourceImageFile = new FileInfo(SourceImage);
             var sourceImageName = Path.GetFileNameWithoutExtension(sourceImageFile.Name);
 
-            
 
-            
+
+
 
             var engine = @"realesrgan\realesrgan-ncnn-vulkan.exe";
 
@@ -102,9 +102,9 @@ namespace AiZoom.ViewModel
             }
 
             var outputFileFullName = $"{settings.OutputDirectory}\\{outputFileName}.{settings.OutputFormat}";
-            
+
             var arg = $" -i \"{SourceImage}\" -o \"{outputFileFullName}\" -n {settings.Module} -f {settings.OutputFormat} -s 4 -g auto -j 2:2:2 -v";
-            
+
             var result = await Cli.Wrap(engine)
                 .WithArguments(arg)
                 .WithWorkingDirectory(AppContext.BaseDirectory)
@@ -118,14 +118,14 @@ namespace AiZoom.ViewModel
             var isDone = output.IndexOf("done", 0);
 
             // process
-            if(isPercentage != -1)
+            if (isPercentage != -1)
             {
                 ProgressString = output;
-                ProgressValue = Double.Parse(output.Remove(output.Length-1,1));
+                ProgressValue = Double.Parse(output.Remove(output.Length - 1, 1));
             }
 
             // done
-            if(isDone != -1)
+            if (isDone != -1)
             {
                 ProgressString = "100%";
                 ProgressValue = 100;
@@ -133,17 +133,17 @@ namespace AiZoom.ViewModel
                 // get final output file here. if the source images has alpha channel, the original file extension is preserved
                 var startIndex = output.IndexOf(" -> ", 0);
 
-                var tail = output.Substring(startIndex+4);
+                var tail = output.Substring(startIndex + 4);
                 ResultImage = tail.Substring(0, tail.Length - 5);
             }
 
 
-            
+
         }
 
         private void OnOpenImageCmd()
         {
-            var dialog = new Ookii.Dialogs.Wpf.VistaOpenFileDialog() { Filter= "jpeg (*.jpg)|*.jpg|PNG (*.png)|*.png|webp (*.webp)|*.webp"};
+            var dialog = new Ookii.Dialogs.Wpf.VistaOpenFileDialog() { Filter = "jpeg (*.jpg)|*.jpg|PNG (*.png)|*.png|webp (*.webp)|*.webp" };
 
             bool? success = dialog.ShowDialog();
             if (success == true)
@@ -151,7 +151,7 @@ namespace AiZoom.ViewModel
                 SourceImage = dialog.FileName;
                 ResultImage = null;
             }
-            
+
         }
     }
 }

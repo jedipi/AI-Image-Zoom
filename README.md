@@ -33,4 +33,8 @@ https://github.com/jedipi/AI-Image-Zoom/releases
 # Related Project
 Real-ESRGAN: https://github.com/xinntao/Real-ESRGAN
 
+# Supporters
+[![Stargazers repo roster for @jedipi/AI-Image-Zoom](https://reporoster.com/stars/jedipi/AI-Image-Zoom)](https://github.com/jedipi/AI-Image-Zoom/stargazers)
+[![Forkers repo roster for @jedipi/AI-Image-Zoom](https://reporoster.com/forks/jedipi/AI-Image-Zoom)](https://github.com/jedipi/AI-Image-Zoom/network/members)
+
 
